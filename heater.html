@@ -115,19 +115,25 @@
         </style>
         <script type="module">
             window.onload = ()=>{
+                let heaterId = '1'
                 const queryString = window.location.search
                 if (queryString != undefined)
                 {
                     const urlParams = new URLSearchParams(queryString)
-                    let heater = urlParams.get('h')
-                    if (heater == '2')
+                    let id = urlParams.get('h')
+                    if (id == '2')
                     {
                         let heaterIcon = document.getElementById('heater-icon')
                         heaterIcon.src = 'heater2.png'
                         let heaterLabel = document.getElementById('heater-label')
                         heaterLabel.innerHTML = 'Heater 2'
+                        heaterId = id
                     }
-                } 
+                }
+                let button = document.getElementById('button')
+                button.addEventListener('click', e=>{
+                    window.location.href = 'model.html?h='+heaterId
+                }) 
             }
         </script>
     </head>
