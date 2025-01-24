@@ -1,0 +1,155 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <style>
+            body 
+            { 
+                position: absolute;
+                top: -1%;
+                left: -2%;
+                width: 100%;
+                height: 100%;
+                background-color: black; 
+            }
+
+            div#header
+            {
+                padding-top: 5%;
+                padding-bottom: 5%;
+                background-color: white;
+            }
+
+            img#logo
+            {
+                margin-left: 3%;
+            }
+
+            p#heater-title
+            {
+                width: 100%;
+                text-align: center;
+                color: white;
+                font-family: sans-serif;
+                font-size: 3vh;
+            }
+
+            p#heater-label
+            {
+                width: 100%;
+                text-align: center;
+                color: white;
+                font-family: sans-serif;
+                font-size: 3vh;
+                font-weight: bold;
+            }
+
+            img#heater-icon
+            {
+                margin-left: 25%;
+                width: 50%;
+                align-self:center;
+                border-radius: 10%;
+                border-color: gray;
+                border-width: 0.5ch;
+                border-style: solid;
+            }
+
+            img#heater-icon:hover
+            {
+                border-color: rgb(230, 62, 48);
+            }
+
+            div#cylinder-menu
+            {
+                display: flex;
+                margin-left: 22.5%;
+                width: 55%;
+                gap: 10vw;
+            }
+
+            div.cylinder-option
+            {
+                width: 20vw;
+                height: 20vw;
+                align-self:center;
+                background-color: gainsboro;
+                border-radius: 50%;
+                border-color: gray;
+                border-width: 0.5ch;
+                border-style: solid;
+            }
+
+            p.cylinder-label
+            {
+                margin-top: 35%;
+                text-align: center;
+                color: black;
+                font-family: sans-serif;
+                font-size: 3vh;
+            }
+
+            div#button
+            {
+                display: block;
+            }
+
+            p#button-label
+            {
+                margin: auto;
+                width: fit-content;
+                background-color: gainsboro;
+                text-align: center;
+                color: black;
+                font-family: sans-serif;
+                font-size: 3vh;
+                font-weight: bold;
+                padding-top: 2vh;
+                padding-bottom: 2vh;
+                padding-left: 8vh;
+                padding-right: 8vh;
+                border-radius: 8ch;
+                border-color: rgb(230, 62, 48);
+                border-width: 0.5ch;
+                border-style: solid;
+            }
+        </style>
+        <script type="module">
+            window.onload = ()=>{
+                const queryString = window.location.search
+                if (queryString != undefined)
+                {
+                    const urlParams = new URLSearchParams(queryString)
+                    let heater = urlParams.get('h')
+                    if (heater == '2')
+                    {
+                        let heaterIcon = document.getElementById('heater-icon')
+                        heaterIcon.src = 'heater2.png'
+                        let heaterLabel = document.getElementById('heater-label')
+                        heaterLabel.innerHTML = 'Heater 2'
+                    }
+                } 
+            }
+        </script>
+    </head>
+    <body>
+        <div id="header"><img id="logo" src="noritz-logo.png"/></div>
+        <p id="heater-title">Select no. of cylinder</p>
+        <div>
+            <img id="heater-icon" src="heater1.png"/>
+            <p id="heater-label">Heater 1</p>
+        </div>
+        <div id="cylinder-menu">
+            <div id="cylinder-option-1" class="cylinder-option">
+                <p class="cylinder-label">2</p>
+            </div>
+            <div id="cylinder-option-1" class="cylinder-option">
+                <p class="cylinder-label">4</p>
+            </div>
+        </div>
+        <br/>
+        <br/>
+        <div id="button"> 
+            <p id="button-label">View in 3D</p>
+        </div>
+    </body>
+</html>

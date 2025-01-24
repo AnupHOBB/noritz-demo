@@ -63,16 +63,29 @@
                 border-color: rgb(230, 62, 48);
             }
         </style>
+        <script type="module">
+            window.onload = ()=>{
+                let menuItem1 = document.getElementById('menu-item-1')
+                menuItem1.addEventListener('click', e=>{
+                    window.location.href = 'heater.html?h=1'
+                })
+
+                let menuItem2 = document.getElementById('menu-item-2')
+                menuItem2.addEventListener('click', e=>{
+                    window.location.href = 'heater.html?h=2'
+                })
+            }
+        </script>
     </head>
     <body>
         <div id="header"><img id="logo" src="noritz-logo.png"/></div>
         <p id="menu-title">Choose a heater</p>
-        <div id="menu-item-1">
-            <img class="menu-item-icon" src="heater1.png"/>
+        <div>
+            <img id="menu-item-1" class="menu-item-icon" src="heater1.png"/>
             <p class="menu-item-label">Heater 1</p>
         </div>
-        <div id="menu-item-2">
-            <img class="menu-item-icon" src="heater2.png"/>
+        <div>
+            <img id="menu-item-2" class="menu-item-icon" src="heater2.png"/>
             <p class="menu-item-label">Heater 2</p>
         </div>
     </body>
