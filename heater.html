@@ -79,6 +79,11 @@
                 border-style: solid;
             }
 
+            div.cylinder-option:hover
+            {
+                border-color: rgb(230, 62, 48);
+            }
+
             p.cylinder-label
             {
                 margin-top: 35%;
@@ -116,6 +121,7 @@
         <script type="module">
             window.onload = ()=>{
                 let heaterId = '1'
+                let cylinderId = '2'
                 const queryString = window.location.search
                 if (queryString != undefined)
                 {
@@ -130,9 +136,26 @@
                         heaterId = id
                     }
                 }
+                let cylinderOption1 = document.getElementById('cylinder-option-1')
+                let cylinderOption2 = document.getElementById('cylinder-option-2')
+
+                cylinderOption1.addEventListener('click', e=>{
+                    cylinderOption1.style.borderColor = 'rgb(230, 62, 48)'
+                    cylinderOption2.style.borderColor = 'gray'
+                    cylinderId = '2'
+                })
+                cylinderOption2.addEventListener('click', e=>{
+                    cylinderOption1.style.borderColor = 'gray'
+                    cylinderOption2.style.borderColor = 'rgb(230, 62, 48)'
+                    cylinderId = '4'
+                })
+
+                cylinderOption1.click()
+
                 let button = document.getElementById('button')
                 button.addEventListener('click', e=>{
-                    window.location.href = 'model.html?h='+heaterId
+                    window.location.href = 'model.html?h='+heaterId+'&c='+cylinderId
+                    console.log('model.html?h='+heaterId+'&c='+cylinderId)
                 }) 
             }
         </script>
@@ -148,7 +171,7 @@
             <div id="cylinder-option-1" class="cylinder-option">
                 <p class="cylinder-label">2</p>
             </div>
-            <div id="cylinder-option-1" class="cylinder-option">
+            <div id="cylinder-option-2" class="cylinder-option">
                 <p class="cylinder-label">4</p>
             </div>
         </div>
